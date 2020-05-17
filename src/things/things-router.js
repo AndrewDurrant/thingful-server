@@ -20,7 +20,8 @@ thingsRouter
     res.json(ThingsService.serializeThing(res.thing))
   })
 
-thingsRouter.route('/:thing_id/reviews/')
+thingsRouter
+  .route('/:thing_id/reviews/')
   .all(checkThingExists)
   .get((req, res, next) => {
     ThingsService.getReviewsForThing(
